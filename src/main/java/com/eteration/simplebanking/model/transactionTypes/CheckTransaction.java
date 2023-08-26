@@ -2,10 +2,13 @@ package com.eteration.simplebanking.model.transactionTypes;
 
 import com.eteration.simplebanking.model.Account;
 import com.eteration.simplebanking.model.Transaction;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public class CheckTransaction extends Transaction {
-    @Override
-    protected void balanceChanges(Account account) {
+import javax.persistence.Entity;
 
-    }
+
+public class CheckTransaction  {
+
 }

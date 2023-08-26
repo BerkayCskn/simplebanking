@@ -20,10 +20,16 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Column(name = "accountNumber")
     private String accountNumber;
+    @Column(name = "ownerName")
     private String ownerName;
+    @Column(name = "balance")
     private Double balance = 0.0;
+    @Column(name = "date")
     private LocalDateTime date;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "BANK_ACCOUNT_NUMBER")
     private List<Transaction> transactions;
 
 

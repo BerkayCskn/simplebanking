@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AccountServiceImpl {
-    @Autowired
+
     AccountRepository accountRepository;
 
     public Account findAccount(String accountNumber) {
