@@ -31,6 +31,8 @@ public abstract class Transaction {
     @Column(name = "approval_code")
     private String approvalCode;
 
+
+
     public Transaction(Double amount, TransactionType transactionType) {
         this.amount = amount;
         this.transactionType = transactionType;

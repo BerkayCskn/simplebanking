@@ -28,7 +28,7 @@ public class Account {
     @Column(name = "date")
     private LocalDateTime date;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "BANK_ACCOUNT_NUMBER")
+    @JoinColumn(name = "account_id")
     private List<Transaction> transactions;
     public Account() {
 

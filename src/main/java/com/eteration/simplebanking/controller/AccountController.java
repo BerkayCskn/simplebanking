@@ -55,6 +55,8 @@ public class AccountController {
         final TransactionResultResponse transactionResultResponse = new TransactionResultResponse(approvalCode, HttpStatus.OK);
         return ResponseEntity.ok(transactionResultResponse);
     }
+
+
     @PostMapping(value = "/debit/{accountNumber}",consumes = "application/json" )
     public ResponseEntity<TransactionResultResponse> debit(
             @Valid @RequestBody TransactionRequest transactionRequest,
