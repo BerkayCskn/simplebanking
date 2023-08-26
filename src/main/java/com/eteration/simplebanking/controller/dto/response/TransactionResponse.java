@@ -12,7 +12,7 @@ public class TransactionResponse {
     private Double amount;
     private TransactionType type;
     private String approvalCode;
-    private LocalDateTime createdDate;
+    private LocalDateTime date;
 
     @JsonCreator
     public TransactionResponse(Double amount,
@@ -22,7 +22,7 @@ public class TransactionResponse {
         this.amount = amount;
         this.type = type;
         this.approvalCode = approvalCode;
-        this.createdDate = createdDate;
+        this.date = createdDate;
     }
     public static TransactionResponse from(Transaction transaction) {
         return new TransactionResponse(

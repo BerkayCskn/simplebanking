@@ -17,7 +17,7 @@ public class ModelTest {
 	@Test
 	public void testCreateAccountAndSetBalance0() {
 		Account account = new Account("Kerem Karaca", "17892");
-		assertTrue(account.getOwner().equals("Kerem Karaca"));
+		assertTrue(account.getOwnerName().equals("Kerem Karaca")); // getOwner to getOwnerName
 		assertTrue(account.getAccountNumber().equals("17892"));
 		assertTrue(account.getBalance() == 0);
 	}

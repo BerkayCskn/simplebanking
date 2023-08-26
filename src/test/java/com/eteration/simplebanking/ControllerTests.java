@@ -7,6 +7,7 @@ import static org.mockito.Mockito.verify;
 
 import com.eteration.simplebanking.controller.AccountController;
 import com.eteration.simplebanking.controller.TransactionStatus;
+import com.eteration.simplebanking.controller.dto.response.AccountResponse;
 import com.eteration.simplebanking.model.Account;
 import com.eteration.simplebanking.model.transactionTypes.DepositTransaction;
 import com.eteration.simplebanking.model.exception.InsufficientBalanceException;
@@ -86,7 +87,7 @@ class ControllerTests  {
         Account account = new Account("Kerem Karaca", "17892");
 
         doReturn(account).when(service).findAccount( "17892");
-        ResponseEntity<Account> result = controller.getAccount( "17892");
+        ResponseEntity<AccountResponse> result = controller.getAccount( "17892"); // Account to AccountResponse
         verify(service, times(1)).findAccount("17892");
         assertEquals(account, result.getBody());
     }
