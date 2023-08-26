@@ -14,6 +14,7 @@ repositories {
 }
 
 dependencies {
+  implementation 'javax.validation:validation-api:2.0.1.Final'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.5.6'
   implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
   implementation group: 'org.springframework.data', name: 'spring-data-commons', version: '2.5.6'
