@@ -12,7 +12,6 @@ import java.util.UUID;
 // This class is a place holder you can change the complete implementation
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity(name = "transaction")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Transaction {
@@ -35,6 +34,10 @@ public abstract class Transaction {
     public Transaction(Double amount, TransactionType transactionType) {
         this.amount = amount;
         this.transactionType = transactionType;
+    }
+
+    public Transaction() {
+
     }
 
     protected String executeTransactionIn(Account account) {

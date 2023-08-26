@@ -18,12 +18,25 @@ import javax.validation.constraints.Pattern;
 // This class is a place holder you can change the complete implementation
 @RestController
 @RequestMapping("/account/v1")
-@RequiredArgsConstructor
 @Validated
+@RequiredArgsConstructor
 public class AccountController {
-    @Autowired
     private final AccountService accountService;
-    @GetMapping("/{accountNumber}")
+
+    @Autowired
+    public AccountController(AccountService accountService) {
+        this.accountService = accountService;
+    }
+  /* @GetMapping(value = "/{accountNumber}",produces = "application/json")
+    public Account getAccount(
+            @PathVariable String accountNumber
+    ) {
+        final Account account = accountService.findAccount(accountNumber);
+        final AccountResponse accountResponse = AccountResponse.from(account);
+        return account ;
+    }
+*/
+    @GetMapping(value = "/{accountNumber}",produces = "application/json")
     public ResponseEntity<AccountResponse> getAccount(
             @PathVariable String accountNumber
     ) {
@@ -32,12 +45,12 @@ public class AccountController {
         return ResponseEntity.ok(accountResponse);
     }
 
-    @PostMapping("/{accountNumber}/credit")
+    @PostMapping(value = "/credit/{accountNumber}",consumes = "application/json" )
     public ResponseEntity<TransactionResultResponse> credit(
-            @PathVariable String accountNumber,
-            @Valid @RequestBody TransactionRequest transactionRequest
+            @Valid @RequestBody TransactionRequest transactionRequest,
+             @PathVariable String accountNumber
     ) {
-        final String approvalCode = accountService.credit(accountNumber, transactionRequest.amount());
+        final String approvalCode = accountService.credit(accountNumber, transactionRequest.getAmount());
         final TransactionResultResponse transactionResultResponse = new TransactionResultResponse(approvalCode, HttpStatus.OK);
         return ResponseEntity.ok(transactionResultResponse);
     }

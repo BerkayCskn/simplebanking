@@ -11,8 +11,8 @@ public class TransactionRequest {
     private Double amount;
 
     @JsonCreator
-    public TransactionRequest(Double amount) {
-        this.amount = amount;
+    public TransactionRequest() {
+
     }
 
     // Getter and setter for the 'amount' field

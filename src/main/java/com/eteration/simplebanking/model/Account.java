@@ -13,7 +13,6 @@ import java.util.List;
 @Getter
 @Setter
 @Entity(name = "account")
-@NoArgsConstructor
 public class Account {
 
     @Id
@@ -31,7 +30,9 @@ public class Account {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "BANK_ACCOUNT_NUMBER")
     private List<Transaction> transactions;
+    public Account() {
 
+    }
 
 
     public Account(String accountNumber, String ownerName) {
