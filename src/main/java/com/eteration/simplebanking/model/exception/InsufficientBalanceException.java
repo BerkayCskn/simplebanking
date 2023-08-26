@@ -1,4 +1,4 @@
-package com.eteration.simplebanking.model;
+package com.eteration.simplebanking.model.exception;
 
 
 // This class is a place holder you can change the complete implementation

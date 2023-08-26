@@ -8,9 +8,9 @@ import static org.mockito.Mockito.verify;
 import com.eteration.simplebanking.controller.AccountController;
 import com.eteration.simplebanking.controller.TransactionStatus;
 import com.eteration.simplebanking.model.Account;
-import com.eteration.simplebanking.model.DepositTransaction;
-import com.eteration.simplebanking.model.InsufficientBalanceException;
-import com.eteration.simplebanking.model.WithdrawalTransaction;
+import com.eteration.simplebanking.model.transactionTypes.DepositTransaction;
+import com.eteration.simplebanking.model.exception.InsufficientBalanceException;
+import com.eteration.simplebanking.model.transactionTypes.WithdrawalTransaction;
 import com.eteration.simplebanking.services.AccountService;
 
 import org.junit.jupiter.api.Assertions;

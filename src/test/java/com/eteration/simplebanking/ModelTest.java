@@ -5,9 +5,9 @@ package com.eteration.simplebanking;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.eteration.simplebanking.model.Account;
-import com.eteration.simplebanking.model.DepositTransaction;
-import com.eteration.simplebanking.model.InsufficientBalanceException;
-import com.eteration.simplebanking.model.WithdrawalTransaction;
+import com.eteration.simplebanking.model.transactionTypes.DepositTransaction;
+import com.eteration.simplebanking.model.exception.InsufficientBalanceException;
+import com.eteration.simplebanking.model.transactionTypes.WithdrawalTransaction;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
