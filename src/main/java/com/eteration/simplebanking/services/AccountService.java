@@ -8,4 +8,5 @@ public interface AccountService {
     public Account findAccount(String accountId);
     String debit(String accountNumber, Double amount);
     String credit(String accountNumber, Double amount);
+    String billPayment(String accountNumber, Double amount, String phoneNumber, String payee);
 }

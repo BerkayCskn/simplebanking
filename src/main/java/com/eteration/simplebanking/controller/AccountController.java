@@ -1,5 +1,6 @@
 package com.eteration.simplebanking.controller;
 
+import com.eteration.simplebanking.controller.dto.request.BillPaymentRequest;
 import com.eteration.simplebanking.controller.dto.request.TransactionRequest;
 import com.eteration.simplebanking.controller.dto.response.AccountResponse;
 import com.eteration.simplebanking.controller.dto.response.TransactionResultResponse;
@@ -54,7 +55,30 @@ public class AccountController {
         final TransactionResultResponse transactionResultResponse = new TransactionResultResponse(approvalCode, HttpStatus.OK);
         return ResponseEntity.ok(transactionResultResponse);
     }
-    public Object debit() {
-        return null;
-	}
+    @PostMapping(value = "/debit/{accountNumber}",consumes = "application/json" )
+    public ResponseEntity<TransactionResultResponse> debit(
+            @Valid @RequestBody TransactionRequest transactionRequest,
+            @PathVariable String accountNumber
+
+    ) {
+        final String approvalCode = accountService.debit(accountNumber, transactionRequest.getAmount());
+        final TransactionResultResponse transactionResultResponse = new TransactionResultResponse(approvalCode, HttpStatus.OK);
+        return ResponseEntity.ok(transactionResultResponse);
+    }
+    @PostMapping(value = "/billPayment/{accountNumber}",consumes = "application/json" )
+    public ResponseEntity<TransactionResultResponse> billPayment(
+            @Valid @RequestBody BillPaymentRequest billPaymentRequest,
+            @PathVariable String accountNumber
+
+    ) {
+        final String approvalCode = accountService.billPayment(
+                accountNumber,
+                billPaymentRequest.getAmount(),
+                billPaymentRequest.getPhoneNumber(),
+                billPaymentRequest.getPayee()
+
+        );
+        final TransactionResultResponse transactionResultResponse = new TransactionResultResponse(approvalCode, HttpStatus.OK);
+        return ResponseEntity.ok(transactionResultResponse);
+    }
 }

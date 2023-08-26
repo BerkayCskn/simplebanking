@@ -3,6 +3,7 @@ package com.eteration.simplebanking.services.impl;
 import com.eteration.simplebanking.model.Account;
 import com.eteration.simplebanking.model.Transaction;
 import com.eteration.simplebanking.model.TransactionType;
+import com.eteration.simplebanking.model.transactionTypes.BillPaymentTransaction;
 import com.eteration.simplebanking.model.transactionTypes.DepositTransaction;
 import com.eteration.simplebanking.model.transactionTypes.WithdrawalTransaction;
 import com.eteration.simplebanking.repositories.AccountRepository;
@@ -32,6 +33,10 @@ public class AccountServiceImpl implements AccountService {
         accountRepository.save(account);
     }
 
+    @Override
+    public String billPayment(String accountNumber, Double amount, String phoneNumber, String payee) {
+        return this.post(accountNumber,new BillPaymentTransaction(amount,phoneNumber,payee));
+    }
 
     @Override
     public String credit(String accountNumber, Double amount) {

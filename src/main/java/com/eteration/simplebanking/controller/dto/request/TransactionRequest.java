@@ -15,7 +15,6 @@ public class TransactionRequest {
 
     }
 
-    // Getter and setter for the 'amount' field
     public Double getAmount() {
         return amount;
     }
