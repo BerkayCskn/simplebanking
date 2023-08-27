@@ -24,15 +24,6 @@ public class AccountServiceImpl implements AccountService {
         return account;
     }
 
-    public void updateAccount(Account account, Transaction transaction){
-        if(transaction.getTransactionType().compareTo(TransactionType.DEPOSIT)==0){
-            account.deposit(transaction.getAmount());
-        }else if(transaction.getTransactionType().compareTo(TransactionType.WITHDRAWAL)==0){
-            account.withdraw(transaction.getAmount());
-        }
-        accountRepository.save(account);
-    }
-
     @Override
     public String billPayment(String accountNumber, Double amount, String phoneNumber, String payee) {
         return this.post(accountNumber,new BillPaymentTransaction(amount,phoneNumber,payee));
