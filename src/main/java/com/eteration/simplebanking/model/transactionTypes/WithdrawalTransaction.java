@@ -5,10 +5,8 @@ import com.eteration.simplebanking.model.Account;
 import com.eteration.simplebanking.model.Transaction;
 import com.eteration.simplebanking.model.TransactionType;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 
 // This class is a place holder you can change the complete implementation
@@ -26,7 +24,7 @@ public class WithdrawalTransaction extends Transaction {
     }
 
     @Override
-    protected void balanceChanges(Account account) {
+    protected void balanceChanges(Account account){
         account.withdraw(this.getAmount());
     }
 

@@ -3,6 +3,8 @@ package com.eteration.simplebanking.controller.dto.response;
 import com.eteration.simplebanking.model.Transaction;
 import com.eteration.simplebanking.model.TransactionType;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;

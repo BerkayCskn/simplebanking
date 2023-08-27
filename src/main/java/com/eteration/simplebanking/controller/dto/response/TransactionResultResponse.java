@@ -1,6 +1,8 @@
 package com.eteration.simplebanking.controller.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 public class TransactionResultResponse {

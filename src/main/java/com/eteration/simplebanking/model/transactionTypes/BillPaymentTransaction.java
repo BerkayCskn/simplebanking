@@ -4,7 +4,6 @@ import com.eteration.simplebanking.model.Account;
 import com.eteration.simplebanking.model.Transaction;
 import com.eteration.simplebanking.model.TransactionType;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;

@@ -2,10 +2,10 @@ package com.eteration.simplebanking.model;
 
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -19,11 +19,15 @@ public abstract class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     @Column(name = "date")
     private LocalDateTime date;
+
+    @NotNull
     @Column(name = "amount")
     private Double amount;
 
+    @NotNull
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
@@ -42,7 +46,7 @@ public abstract class Transaction {
 
     }
 
-    protected String executeTransactionIn(Account account) {
+    public String executeTransactionIn(Account account) {
         this.balanceChanges(account);
         this.approvalCode = UUID.randomUUID().toString();
         return approvalCode;
@@ -52,7 +56,7 @@ public abstract class Transaction {
         this.date = LocalDateTime.now();
     }
 
-    protected abstract void balanceChanges(Account account);
+    protected abstract void balanceChanges(Account account) ;
 
     public LocalDateTime getDate() {
         return date;

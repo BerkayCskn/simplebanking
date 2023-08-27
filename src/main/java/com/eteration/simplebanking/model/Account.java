@@ -2,11 +2,12 @@ package com.eteration.simplebanking.model;
 
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 // This class is a place holder you can change the complete implementation
@@ -19,17 +20,24 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    @NotNull
     @Column(name = "accountNumber")
     private String accountNumber;
+
+    @NotNull
     @Column(name = "ownerName")
     private String ownerName;
+
     @Column(name = "balance")
     private Double balance = 0.0;
+
     @Column(name = "date")
     private LocalDateTime date;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id")
-    private List<Transaction> transactions;
+    private List<Transaction> transactions = new ArrayList<>();
     public Account() {
 
     }
@@ -49,7 +57,7 @@ public class Account {
         this.balance = balance + depositAmount;
     }
 
-    public void withdraw(double withdrawAmount) {
+    public void withdraw(double withdrawAmount){
         this.balance = balance - withdrawAmount;
     }
 
